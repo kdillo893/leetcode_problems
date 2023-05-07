@@ -11,6 +11,7 @@
 #include "headers/multiplystrings.h"
 #include "headers/removeNthFromEnd.h"
 #include "headers/spiralorder.h"
+#include "headers/mergesort.h"
 
 void happyNumTest() {
   int n = 19;
@@ -207,6 +208,52 @@ void removeNthFromEndTest() {
 
 }
 
+void mergeSortTest() {
+
+  int nums1Size = 10;
+  int nums2Size = 5;
+  int nums1Len = 5;
+  int nums2Len = 5;
+  int nums1[10] = { 4, 5, 8, 9, 10, 0,0,0,0,0};
+  int nums2[5] = { 1, 2, 3, 6, 7};
+
+  printf("[4,5,8,9,10] with [1,2,3,6,7]:\n");
+  merge(nums1, nums1Size, nums1Len, nums2, nums2Size, nums2Len);
+  
+  printf("[");
+  for (int i = 0; i < nums1Size; i++) {
+
+    printf("%d", nums1[i]);
+    if (i < nums1Size - 1) {
+      printf(", ");
+    }
+  }
+  printf("]\n");
+
+  int nums3Size = 12;
+  int nums4Size = 9;
+  int nums3Len = 3;
+  int nums4Len = 9;
+  int nums3[12] = {1,2,3,0,0,0,0,0,0,0,0,0};
+  int nums4[9] = {4,5,6,7,8,9,10,11,12};
+
+  printf("[1,2,3] with [4,5,6,7,8,9,10,11,12]:\n");
+  merge(nums3, nums3Size, nums3Len, nums4, nums4Size, nums4Len);
+  
+  printf("[");
+  for (int i = 0; i < nums3Size; i++) {
+
+    printf("%d", nums3[i]);
+    if (i < nums3Size - 1) {
+      printf(", ");
+    }
+  }
+  printf("]\n");
+
+
+  return;
+}
+
 int main() {
 
   printf("HappyNum test:\n\n");
@@ -233,6 +280,9 @@ int main() {
   removeNthFromEndTest();
   printf("\n");
   
+  printf("MergeSort test:\n\n");
+  mergeSortTest();
+  printf("\n");
 
   return 0;
 }
