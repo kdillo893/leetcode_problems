@@ -1,9 +1,16 @@
 #include<math.h>
 #include<stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 #include<string.h>
 #include<time.h>
-#include "leetcode_functions.h"
+
+//user defined header functions (containing solutions)
+#include "headers/findball.h"
+#include "headers/ishappynum.h"
+#include "headers/longcommonprefix.h"
+#include "headers/multiplystrings.h"
+#include "headers/removeNthFromEnd.h"
+#include "headers/spiralorder.h"
 
 void happyNumTest() {
   int n = 19;
@@ -190,7 +197,7 @@ void removeNthFromEndTest() {
 
   currNode = removeNthFromEnd(theList->head, 3);
   
-  printf("before:\n[");
+  printf("after:\n[");
   while(currNode != NULL) {
     printf("%d, ", currNode->val);
     currNode = currNode->next;
