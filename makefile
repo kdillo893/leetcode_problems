@@ -16,26 +16,6 @@ OBJS := $(addprefix $(OBJDIR)/, findball.o helpers.o ishappynum.o longcommonpref
 $(OBJDIR)/%.o : $(FUNCDIR)/%.c
 	$(CC) $(CFLAGS) $(WARNINGS) -c -o $@ $<
 
-#Explicitly listing rules for the files, because the pattern doesn't seem to work..
-
-#findball.o: funcs/findball.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/findball.c findball.o
-#helpers.o: funcs/helpers.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/helpers.c helpers.o
-#ishappynum.o: funcs/ishappynum.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/ishappynum.c ishappynum.o
-#longcommonprefix.o: funcs/longcommonprefix.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/longcommonprefix.c longcommonprefix.o
-#mergesort.o: funcs/mergesort.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/mergesort.c mergesort.o
-#multiplystrings.o: funcs/multiplystrings.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/multiplystrings.c multiplystrings.o
-#removeNthFromEnd.o: funcs/removeNthFromEnd.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/removeNthFromEnd.c removeNthFromEnd.o
-#spiralorder.o: funcs/spiralorder.c
-#	$(CC) $(CFLAGS) $(WARNINGS) -c funcs/spiralorder.c spiralorder.o
-#
-
 clean:
 	rm *.o objs/*.o ./leetcode
 
