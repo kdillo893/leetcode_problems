@@ -1,20 +1,9 @@
-/**
- * Please don't copy solutions, this is mainly a record of my attempts
- * in case people want to see my thought process and "how I write code"
- */
+#include "../longcommonprefix.h"
 
 // #include <stdio.h>
 #include <stdlib.h> // for malloc/free
 
-
-char* longestCommonPrefix(char **strs, int strsSize);
-
-
-/**
- * return string (char ptr) of the longest common prefix for the passed array of
- * string pointers.
- */
-inline char *longestCommonPrefix(char **strs, int strsSize) {
+char* longestCommonPrefix(char **strs, int strsSize) {
   // guard clauses:
   //   no words, no common.
   if (strsSize <= 0) {

@@ -1,15 +1,10 @@
+#include "../ishappynum.h"
+
 /** NOTE: This solution is inspired by others for this problem.
   Couldn't find the old iteration without outside information 
   to reduce runtime.
 */
-
-int isHappy(int n);
-
-/**
- * Compute wehther the number is happy (sums of digits squared, do they converge
- * to "1")
- */
-inline int isHappy(int n) {
+int isHappy(int n) {
 
   if (n <= 0)
     return 0;

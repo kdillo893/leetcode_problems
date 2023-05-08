@@ -1,19 +1,9 @@
+#include "../findball.h"
 
 #include <stdlib.h> // for null, probably not super needed...
 #include <stdbool.h> // just to make true/false easier with the "has balls"
 
-int* findBall(int **grid, int gridSize, int *gridColSize, int *returnSize);
-
-// I forget why everything has "inline", might test without later.
-/**
- * this is the source of the question:
- * https://leetcode.com/problems/where-will-the-ball-fall/?envType=study-plan&id=level-2
- *
- * Note: The returned array must be malloced, assume caller calls free().
- * MyNote: based on the input samples, this would be more efficient with
- * datatypes like bool or uint8_t.
- */
-inline int *findBall(int **grid, int gridSize, int *gridColSize, int *returnSize) {
+int *findBall(int **grid, int gridSize, int *gridColSize, int *returnSize) {
   // guard clauses,
   //   no grids no balls.
   if (gridSize <= 0) {
@@ -103,4 +93,8 @@ inline int *findBall(int **grid, int gridSize, int *gridColSize, int *returnSize
   }
 
   return returnBall;
+}
+
+void printBallGrid() {
+
 }

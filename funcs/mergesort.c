@@ -1,23 +1,9 @@
+#include "../mergesort.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
-void mergev1(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
-void mergev2(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
-void mergev3(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n);
-
-/**You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, 
-    representing the number of elements in nums1 and nums2 respectively.
-
-Merge nums1 and nums2 into a single array sorted in non-decreasing order. (increasing??? wtf?)
-
-The final sorted array should not be returned by the function, but instead be stored inside the array nums1.
-  To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, 
-  and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
-*/
-
-inline void mergev1(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+void mergev1(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
 
   //array output size is size1+size2... wait, what's the difference between *Size and n/m? wanna test...
   // int newLen = m + n;
@@ -85,7 +71,7 @@ inline void mergev1(int* nums1, int nums1Size, int m, int* nums2, int nums2Size,
   }
 }
 
-inline void mergev2(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+void mergev2(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
   //array output size is size1+size2... wait, what's the difference between *Size and n/m? wanna test...
   // int newLen = m + n;
   printf("n1s=%d, n2s=%d, m=%d, n=%d\n", nums1Size, nums2Size, m, n); 
@@ -118,7 +104,7 @@ inline void mergev2(int* nums1, int nums1Size, int m, int* nums2, int nums2Size,
   }
 }
 
-inline void mergev3(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+void mergev3(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
   // doing a "memory inefficient" method, which copies the nums1 array into one with 
   //    m length which is temporarily allocated, then do normal "step through the arrays".
 
@@ -130,7 +116,7 @@ inline void mergev3(int* nums1, int nums1Size, int m, int* nums2, int nums2Size,
   // int* tempnums1 = (int*) calloc(m, sizeof(int));
 }
 
-inline void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
   // mergev1(nums1, nums1Size, m, nums2, nums2Size, n);
   mergev2(nums1, nums1Size, m, nums2, nums2Size, n);
 }

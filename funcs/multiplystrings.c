@@ -1,12 +1,8 @@
+#include "../multiplystrings.h"
 
 #include <stdio.h>  // for "null" pointer, might be better off using 0
 #include <stdlib.h> // for malloc/free
 
-char* multiply(char * num1, char * num2);
-
-/**
- * multiply strings which represent numbers. Don't use any "int parsing" libraries or multiplying by using ints.
- */
 inline char * multiply(char * num1, char * num2) {
 
   //edge cases:

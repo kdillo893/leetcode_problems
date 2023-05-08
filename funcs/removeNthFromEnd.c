@@ -1,17 +1,7 @@
+#include "../removeNthFromEnd.h"
 
 #include<stdio.h>
 #include<stdlib.h> // for malloc/free
-
-//define what a linked list node is; 
-//  has a value, points to another list node
-struct ListNode {
-  int val;
-  struct ListNode* next;
-};
-
-struct ListNode* removeNthFromEndV1(struct ListNode* head, int n);
-struct ListNode* removeNthFromEndV2(struct ListNode* head, int n);
-struct ListNode* removeNthFromEnd(struct ListNode* head, int n);
 
 // I forget why everything has "inline", might test without later.
 /**

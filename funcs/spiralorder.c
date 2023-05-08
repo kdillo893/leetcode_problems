@@ -1,13 +1,9 @@
+#include "../spiralorder.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize, int *returnSize);
-
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-inline int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize,
+int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize,
                  int *returnSize) {
   // guard clause
   if (matrixSize == 0) {
