@@ -1,4 +1,4 @@
-#include "../longcommonprefix.h"
+#include "../headers/longcommonprefix.h"
 
 // #include <stdio.h>
 #include <stdlib.h> // for malloc/free

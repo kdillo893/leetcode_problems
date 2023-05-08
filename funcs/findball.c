@@ -1,4 +1,4 @@
-#include "../findball.h"
+#include "../headers/findball.h"
 
 #include <stdlib.h> // for null, probably not super needed...
 #include <stdbool.h> // just to make true/false easier with the "has balls"

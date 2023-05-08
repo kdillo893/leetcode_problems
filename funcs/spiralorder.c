@@ -1,4 +1,4 @@
-#include "../spiralorder.h"
+#include "../headers/spiralorder.h"
 
 #include <stdio.h>
 #include <stdlib.h>

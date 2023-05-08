@@ -1,4 +1,4 @@
-#include "../ishappynum.h"
+#include "../headers/ishappynum.h"
 
 /** NOTE: This solution is inspired by others for this problem.
   Couldn't find the old iteration without outside information 

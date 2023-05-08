@@ -1,4 +1,4 @@
-#include "../removeNthFromEnd.h"
+#include "../headers/removeNthFromEnd.h"
 
 #include<stdio.h>
 #include<stdlib.h> // for malloc/free

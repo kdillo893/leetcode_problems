@@ -1,5 +1,5 @@
-*.o
-*/*.o
+objs
+objs/*.o
 
 leetcode_main.o
 leetcode

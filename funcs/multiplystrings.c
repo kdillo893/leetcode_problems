@@ -1,4 +1,4 @@
-#include "../multiplystrings.h"
+#include "../headers/multiplystrings.h"
 
 #include <stdio.h>  // for "null" pointer, might be better off using 0
 #include <stdlib.h> // for malloc/free

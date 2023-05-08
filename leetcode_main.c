@@ -5,13 +5,13 @@
 #include<time.h>
 
 //user defined header functions (containing solutions)
-#include "findball.h"
-#include "ishappynum.h"
-#include "longcommonprefix.h"
-#include "multiplystrings.h"
-#include "removeNthFromEnd.h"
-#include "spiralorder.h"
-#include "mergesort.h"
+#include "headers/findball.h"
+#include "headers/ishappynum.h"
+#include "headers/longcommonprefix.h"
+#include "headers/multiplystrings.h"
+#include "headers/removeNthFromEnd.h"
+#include "headers/spiralorder.h"
+#include "headers/mergesort.h"
 
 void happyNumTest() {
   int n = 19;
