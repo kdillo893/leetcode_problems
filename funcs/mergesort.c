@@ -1,4 +1,5 @@
 #include "../headers/mergesort.h"
+#include "../headers/helpers.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,15 +45,8 @@ void mergev1(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
   }
 
   for (int c = 0, j = 0; j < n && c < m + n; ) {
-    printf("c=%d, j=%d, [", c, j);
-    for (int i = 0; i < nums1Size; i++) {
-
-      printf("%d", nums1[i]);
-      if (i < nums1Size - 1) {
-        printf(", ");
-      }
-    }
-    printf("]\n");
+    printf("c=%d, j=%d, ", c, j);
+    printIntArray(nums1, nums1Size);
 
     if (nums1[c] < nums1[m+j]) {
       c++;

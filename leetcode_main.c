@@ -6,12 +6,15 @@
 
 //user defined header functions (containing solutions)
 #include "headers/findball.h"
+#include "headers/helpers.h"
 #include "headers/ishappynum.h"
 #include "headers/longcommonprefix.h"
 #include "headers/multiplystrings.h"
 #include "headers/removeNthFromEnd.h"
 #include "headers/spiralorder.h"
 #include "headers/mergesort.h"
+
+//TODO: move the test functions into separate folder for tests, have a test execution
 
 void happyNumTest() {
   int n = 19;
@@ -46,14 +49,7 @@ void spiralTest() {
   int* spiralReturn = spiralOrder(matrix, matrixSize, &colSize, &returnSize);
 
   //print the array...
-  printf("[");
-  for (int i = 0; i < returnSize; i++) {
-    printf("%d", spiralReturn[i]);
-    if (i < returnSize - 1) {
-      printf(", ");
-    }
-  }
-  printf("]\n");
+  printIntArray(spiralReturn, returnSize);
 
   free(spiralReturn);
 
@@ -102,14 +98,7 @@ void findBallTest() {
   int* findBallReturn = findBall(grid, gridSize, &colSize, &returnSize);
 
   //print the array...
-  printf("[");
-  for (int i = 0; i < returnSize; i++) {
-    printf("%d", findBallReturn[i]);
-    if (i < returnSize - 1) {
-      printf(", ");
-    }
-  }
-  printf("]\n");
+  printIntArray(findBallReturn, returnSize);
 
   free(findBallReturn);
 
@@ -189,23 +178,13 @@ void removeNthFromEndTest() {
 
   //before:
   node_t* currNode = theList->head;
-  printf("before:\n[");
-  while(currNode != NULL) {
-    printf("%d, ", currNode->val);
-    currNode = currNode->next;
-  }
-  printf("]\n");
+  printf("before:\n");
+  printLinkedList(currNode);
 
   currNode = removeNthFromEnd(theList->head, 3);
   
-  printf("after:\n[");
-  while(currNode != NULL) {
-    printf("%d, ", currNode->val);
-    currNode = currNode->next;
-  }
-  printf("]\n");
-
-
+  printf("after:\n");
+  printLinkedList(currNode);
 }
 
 void mergeSortTest() {
@@ -220,15 +199,7 @@ void mergeSortTest() {
   printf("[4,5,8,9,10] with [1,2,3,6,7]:\n");
   merge(nums1, nums1Size, nums1Len, nums2, nums2Size, nums2Len);
   
-  printf("[");
-  for (int i = 0; i < nums1Size; i++) {
-
-    printf("%d", nums1[i]);
-    if (i < nums1Size - 1) {
-      printf(", ");
-    }
-  }
-  printf("]\n");
+  printIntArray(nums1, nums1Size);
 
   int nums3Size = 12;
   int nums4Size = 9;
@@ -240,18 +211,7 @@ void mergeSortTest() {
   printf("[1,2,3] with [4,5,6,7,8,9,10,11,12]:\n");
   merge(nums3, nums3Size, nums3Len, nums4, nums4Size, nums4Len);
   
-  printf("[");
-  for (int i = 0; i < nums3Size; i++) {
-
-    printf("%d", nums3[i]);
-    if (i < nums3Size - 1) {
-      printf(", ");
-    }
-  }
-  printf("]\n");
-
-
-  //expected results for nums1-2: 
+  printIntArray(nums3, nums3Size);
 
 
   return;
