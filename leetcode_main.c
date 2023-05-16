@@ -13,6 +13,7 @@
 #include "headers/removeNthFromEnd.h"
 #include "headers/spiralorder.h"
 #include "headers/mergesort.h"
+#include "headers/mergestrings.h"
 
 //TODO: move the test functions into separate folder for tests, have a test execution
 
@@ -217,6 +218,23 @@ void mergeSortTest() {
   return;
 }
 
+void mergeStringsAlternatelyTest() {
+
+  char * str1 = "bigclock";
+  char * str2 = "rivers";
+
+  printf("%s with %s:\n", str1, str2);
+  char* result1 = mergeAlternately(str1, str2);
+  
+  printf("result: %s", result1);
+
+  //free the arrays returned
+  free(result1);
+
+  return;
+}
+
+
 int main() {
 
   printf("HappyNum test:\n\n");
@@ -245,6 +263,10 @@ int main() {
   
   printf("MergeSort test:\n\n");
   mergeSortTest();
+  printf("\n");
+
+  printf("MergeStringsAlternately test:\n\n");
+  mergeStringsAlternatelyTest();
   printf("\n");
 
   return 0;

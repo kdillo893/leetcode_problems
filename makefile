@@ -8,15 +8,19 @@ LIBS=
 
 FUNCDIR := funcs
 OBJDIR := objs
-OBJS := $(addprefix $(OBJDIR)/, findball.o helpers.o ishappynum.o \
-			longcommonprefix.o mergesort.o multiplystrings.o \
-       			removeNthFromEnd.o spiralorder.o)
-#OBJS := $(addprefix $(OBJDIR)/, *.o)
+
+SOURCES := $(wildcard $(FUNCDIR)/*.c)
+OBJS := $(patsubst $(FUNCDIR)/%.c, $(OBJDIR)/%.o, $(SOURCES)) 
+
+###### rule definitions
+
+all:
+	$(MAKE) clean leetcode
 
 %.o : | $(OBJDIR)
 
 $(OBJDIR)/%.o : $(FUNCDIR)/%.c
-	$(CC) $(CFLAGS) $(WARNINGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(WARNINGS) -I./$(FUNCDIR) -c -o $@ $<
 
 clean:
 	rm objs/*.o ./leetcode
