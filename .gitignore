@@ -1,5 +1,7 @@
-objs
-objs/*.o
 
-leetcode_main.o
-leetcode
+
+#Object compiled files and executables.
+leetcode/objs
+leetcode/objs/*.o
+leetcode/leetcode_main.o
+leetcode/leetcode
