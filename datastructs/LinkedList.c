@@ -10,7 +10,7 @@ void linkedListPrepend(linkedlist_t * theList, int newInt) {
 
 void linkedListAppend(linkedlist_t * theList, int newInt) {
   //go to end.
-  node_t * currNode
+  node_t * currNode;
 
 }
 
