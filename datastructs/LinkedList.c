@@ -9,17 +9,42 @@ void linkedListPrepend(linkedlist_t * theList, int newInt) {
 }
 
 void linkedListAppend(linkedlist_t * theList, int newInt) {
-  //go to end.
+  //go to end; with last node put "next" as a new allocated node with the int value.
   node_t * currNode;
+  node_t * newNode = malloc(sizeof(node_t));
 
+  while (currNode->next != NULL) {
+    currNode = currNode->next;
+  }
+
+  currNode->next = newNode;
 }
 
-void* linkedListGetEntry(linkedlist_t * theList, int idx) { 
+node_t * linkedListSearch(linkedlist_t * theList, int idx) {
+
+  return NULL;
+}
+
+int linkedListGetEntry(linkedlist_t * theList, int idx) { 
   node_t * currNode = theList->head;
+
+  int currIdx = 0;
+  while(currNode->next != NULL || currIdx != idx) {
+
+  }
+
+  if (currIdx != idx) {
+    //didn't reach the index... what do?
+
+    return -1;
+  } else {
+    return currNode->val;
+  }
+
 }
 
 void linkedListSetEntry(linkedlist_t * theList, int idx, void* value) {
-  
+
   
 }
 
