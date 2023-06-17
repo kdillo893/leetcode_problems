@@ -13,6 +13,7 @@
 #include "headers/multiplystrings.h"
 #include "headers/removeDupes.h"
 #include "headers/removeNthFromEnd.h"
+#include "headers/removeelement.h"
 #include "headers/spiralorder.h"
 #include "headers/mergesort.h"
 #include "headers/mergestrings.h"
@@ -254,6 +255,29 @@ void removeDuplicatesTest() {
 }
 
 
+void removeElementTest() {
+  
+  //removing elements with that value, not the index.
+
+  int arrSize = 12;
+  int arr[12] = {45,212,3242,1234,4324,45,6778,56785,234,5454,1212, 9999};
+  int expectedResSize = 10;
+  int expectedRes[10] = {212,3242,1234,4324,6778,56785,234,5454,1212, 9999};
+
+
+  //removing idx 5.
+  int resSize = removeElement(arr, arrSize, 45);
+  printf("returningArraySize=%d; expectedSize=%d\n", resSize, expectedResSize);
+  assert(expectedResSize == resSize);
+
+  for (int i = 0; i < resSize; i++) {
+      printf("@%d: op=%d, expect=%d\n", i, arr[i], expectedRes[i]);
+      assert(arr[i] == expectedRes[i]);
+  }
+
+}
+
+
 int main() {
 
   printf("HappyNum test:\n\n");
@@ -290,6 +314,10 @@ int main() {
 
   printf("RemoveDupes test:\n\n");
   removeDuplicatesTest();
+  printf("\n");
+  
+  printf("RemoveElement test:\n\n");
+  removeElementTest();
   printf("\n");
 
   return 0;
