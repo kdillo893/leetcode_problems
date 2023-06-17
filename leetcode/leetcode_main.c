@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+#include<assert.h>
 
 //user defined header functions (containing solutions)
 #include "headers/findball.h"
@@ -10,6 +11,7 @@
 #include "headers/ishappynum.h"
 #include "headers/longcommonprefix.h"
 #include "headers/multiplystrings.h"
+#include "headers/removeDupes.h"
 #include "headers/removeNthFromEnd.h"
 #include "headers/spiralorder.h"
 #include "headers/mergesort.h"
@@ -234,6 +236,23 @@ void mergeStringsAlternatelyTest() {
   return;
 }
 
+void removeDuplicatesTest() {
+  int numsSize = 20;
+  int nums[20] = {5,6,3,2,3,4,7,8,1,2,4,8,12,4,322,134,90,5675,7,345}; // Input array
+  int expectedNumsSize = 14;
+  int expectedNums[14] = {5,6,3,2,4,7,8,1,12,322,134,90,5675,345}; // The expected answer with correct length
+
+  int k = removeDuplicates(nums, numsSize); // Calls your implementation
+
+  assert(k == expectedNumsSize);
+  // printf("returningArraySize=%d; expectedSize=%d\n", k, expectedNumsSize);
+
+  for (int i = 0; i < k; i++) {
+      // printf("@%d: op=%d, expect=%d\n", i, nums[i], expectedNums[i]);
+      assert(nums[i] == expectedNums[i]);
+  }
+}
+
 
 int main() {
 
@@ -267,6 +286,10 @@ int main() {
 
   printf("MergeStringsAlternately test:\n\n");
   mergeStringsAlternatelyTest();
+  printf("\n");
+
+  printf("RemoveDupes test:\n\n");
+  removeDuplicatesTest();
   printf("\n");
 
   return 0;
