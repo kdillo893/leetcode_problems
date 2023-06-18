@@ -8,6 +8,7 @@
 //user defined header functions (containing solutions)
 #include "headers/findball.h"
 #include "headers/helpers.h"
+#include "headers/isSorted.h"
 #include "headers/ishappynum.h"
 #include "headers/longcommonprefix.h"
 #include "headers/multiplystrings.h"
@@ -277,6 +278,27 @@ void removeElementTest() {
 
 }
 
+void isSortedTest() {
+  int arr1Size = 5;
+  int arr1[5] = {1,2,3,4,5};
+  assert(isSorted(arr1, arr1Size));
+
+  int arr2Size = 5;
+  int arr2[5] = {5,4,3,2,1};
+  assert(!isSorted(arr2, arr2Size));
+
+  int arr3Size = 0;
+  int arr3[0] = {};
+  assert(isSorted(arr3, arr3Size));
+  int arr4Size = 1;
+  int arr4[1] = {12313};
+  assert(isSorted(arr4, arr4Size));
+
+  int arr5Size = 9;
+  int arr5[9] = {924,1234,4323,5123,12323,23422,43242,242424,262323};
+  assert(isSorted(arr5, arr5Size));
+}
+
 
 int main() {
 
@@ -319,6 +341,11 @@ int main() {
   printf("RemoveElement test:\n\n");
   removeElementTest();
   printf("\n");
+
+  printf("IsSorted test:\n\n");
+  isSortedTest();
+  printf("\n");
+  
 
   return 0;
 }
