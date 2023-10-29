@@ -17,10 +17,11 @@ OBJS := $(patsubst $(FUNCDIR)/%.c, $(OBJDIR)/%.o, $(SOURCES))
 all:
 	$(MAKE) clean leetcode
 
-%.o : | $(OBJDIR)
-
-$(OBJDIR)/%.o : $(FUNCDIR)/%.c
+$(OBJDIR)/%.o : $(FUNCDIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) $(WARNINGS) -I./$(FUNCDIR) -c -o $@ $<
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
 
 clean:
 	rm objs/*.o ./leetcode
