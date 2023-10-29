@@ -1,0 +1,5 @@
+# object files
+objs/*.o
+
+# the executable
+leetcode

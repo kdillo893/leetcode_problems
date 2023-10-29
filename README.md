@@ -32,15 +32,21 @@ This contains a set of C problems answered previously.
 
 #### Running
 
-```make```
+```
+make
+```
 will create the object files and place them in the appropriate locations. This 
 generates a file "leetcode", which is an executable that runs each of the tasks
 in a test.
 
-```./leetcode```
+```
+./leetcode
+```
 
 #### cleanup
-```make clean```
+```
+make clean
+```
 
 ### leetcodeJava
 This contains a set of Java problems answered previously.
