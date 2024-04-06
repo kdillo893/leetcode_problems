@@ -3,23 +3,7 @@ package com.kdill;
  * CodingBat
  */
 public class CodingBat {
-
-  public static void main(String[] args) {
-
-    String test1String = "Hello";
-    boolean test1 = stringE(test1String);
-    String test2String = "Hllo";
-    boolean test2 = stringE(test2String);
-    String test3String = "Heeeeeeello";
-    boolean test3 = stringE(test3String);
-
-    System.out.printf("test1: \"%s\" %b\n", test1String, test1);
-    System.out.printf("test2: \"%s\" %b\n", test2String, test2);
-    System.out.printf("test3: \"%s\" %b\n", test3String, test3);
-
-  }
-
-  public String endUp(String str) {
+  public static String endUp(String str) {
     if (str.length() < 3) {
       return str.toUpperCase();
     }
@@ -29,7 +13,7 @@ public class CodingBat {
     return str.substring(0, str.length() - 3).concat(last3.toUpperCase());
   }
 
-  public String everyNth(String str, int n) {
+  public static String everyNth(String str, int n) {
     if (n <= 1) {
       return str;
     }

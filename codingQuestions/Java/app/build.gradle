@@ -32,5 +32,27 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'com.kdill.App'
+}
+
+test {
+    testLogging {
+        events("passed", "skipped", "failed", "standardOut", "standardError")
+    }
+}
+
+tasks.register("hello") {
+    doLast {
+
+        println('Hello!')
+    }
+}
+
+tasks.register("greet") {
+    doLast {
+
+        println('how are you?')
+    }
+
+    dependsOn("hello")
 }

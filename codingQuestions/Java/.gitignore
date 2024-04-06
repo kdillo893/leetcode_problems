@@ -1,4 +1,9 @@
 
+# vscode things
+.project
+.settings
+.settings/*
+
 # Ignore Gradle project-specific cache directory
 .gradle
 
