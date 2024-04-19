@@ -1,7 +1,8 @@
 package data;
 
-import java.util.*;
-import data.GraphNode;
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.UnsupportedOperationException;
 
 public class MyGraph {
   
@@ -14,9 +15,6 @@ public class MyGraph {
     theNodes = new ArrayList<GraphNode>();
   }
 
-
-
-
   public GraphNode getNode(int nodeIdx) {
     return theNodes.get(nodeIdx);
   }
@@ -27,6 +25,22 @@ public class MyGraph {
   }
 
   public void removeNode(GraphNode node) {
+    throw new UnsupportedOperationException();
+  }
 
+  public int indexOfNode(GraphNode node) {
+    return theNodes.indexOf(node);
+  }
+
+  public int size() {
+    return theNodes.size();
+  }
+
+
+  @Override
+  public String toString() {
+    // TODO Auto-generated method stub
+    String returnString = super.toString() + ": " + theNodes.toString();
+    return returnString;
   }
 }

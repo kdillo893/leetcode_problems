@@ -24,6 +24,10 @@ public class GraphNode {
   public GraphNode(Object data, LinkedList<GraphNode> adjacentNodes) {
 
     this.data = data;
+    //if adjacent nodes null, make it.
+    if (adjacentNodes == null) {
+      adjacentNodes = new LinkedList<GraphNode>();
+    }
     this.adjacentNodes = adjacentNodes;
     this.nodeId = idCounter++;
   }
@@ -52,6 +56,18 @@ public class GraphNode {
 
   @Override
   public String toString() {
-    return ""+data.toString();
+
+    StringBuilder sb = new StringBuilder();
+    sb.append(nodeId);
+    sb.append("(" + data.toString() + ")");
+    sb.append("->");
+
+    ArrayList<Long> adjNodeIdxList = new ArrayList<Long>();
+    for (GraphNode adj : adjacentNodes) {
+      adjNodeIdxList.add(adj.getNodeId());
+    }
+    sb.append(adjNodeIdxList);
+
+    return sb.toString();
   }
 }
