@@ -13,6 +13,10 @@ public class DSTest {
 
   public static void main(String[] args) {
 
+    for (String arg : args) {
+      System.out.println(arg);
+    }
+
     // instance a graph, compare with the Graph in other standard libaries
     MyGraph aGraph = new MyGraph();
     GraphNode node1 = new GraphNode(1);
@@ -45,9 +49,11 @@ public class DSTest {
     List<Integer> ints = randomIntGen();
     //randomly link things to other ints when adding graph? how do I do that.
     
+    int maxLinks = args.length >= 1 ? Integer.valueOf(args[0]) : 3;
+
     for (Integer thing : ints) {
       Random r = new Random();
-      for (int links = 0; links < 10; links++) {
+      for (int links = 0; links < maxLinks; links++) {
 
         Integer randomInList = ints.get(r.nextInt(ints.size()));
 
@@ -66,6 +72,16 @@ public class DSTest {
     List<Integer> bfsRes = Searches.bfsOfGraph(mapGraph);
     System.out.format("bfslen = %d\n", bfsRes.size());
     System.out.println(bfsRes);
+
+    //if only the first element searched from, want to see how far it scales.
+    List<Integer> dfsOnlyFirst = Searches.dfsOfGraphOnlyFirst(mapGraph);
+    System.out.format("dfsoflen = %d\n", dfsOnlyFirst.size());
+    System.out.println(dfsOnlyFirst);
+
+    //if only the first element searched from, want to see how far it scales.
+    List<Integer> bfsOnlyFirst = Searches.bfsOfGraphOnlyFirst(mapGraph);
+    System.out.format("bfsoflen = %d\n", bfsOnlyFirst.size());
+    System.out.println(bfsOnlyFirst);
   }
 
   /**

@@ -49,6 +49,18 @@ public class Searches {
         return list;
     }
 
+    public static ArrayList<Integer> dfsOfGraphOnlyFirst(MapGraph<Integer> aGraph) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        Set<Integer> nodes = aGraph.getNodes();
+
+        Integer node = nodes.iterator().next();
+        dfsOfGraph(node, aGraph, list);
+
+        return list;
+    }
+
     public static ArrayList<Integer> dfsOfGraph(Integer current, MapGraph<Integer> aGraph, ArrayList<Integer> answers) {
 
         // we have the existing answers, we're looking for "current" in "adj"
@@ -77,6 +89,18 @@ public class Searches {
         for (Integer node : nodes) {
             bfsOfGraph(node, aGraph, list);
         }
+
+        return list;
+    }
+
+    public static ArrayList<Integer> bfsOfGraphOnlyFirst(MapGraph<Integer> aGraph) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        Set<Integer> nodes = aGraph.getNodes();
+
+        Integer node = nodes.iterator().next();
+        bfsOfGraph(node, aGraph, list);
 
         return list;
     }
