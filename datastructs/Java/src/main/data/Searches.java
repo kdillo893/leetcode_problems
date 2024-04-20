@@ -48,11 +48,13 @@ public class Searches {
 
         return list;
     }
- 
+
     public static ArrayList<Integer> dfsOfGraph(Integer current, MapGraph<Integer> aGraph, ArrayList<Integer> answers) {
 
         // we have the existing answers, we're looking for "current" in "adj"
-        answers.add(current);
+        if (!answers.contains(current)) {
+            answers.add(current);
+        }
 
         // loop over the current's adjacency list, skip over ones that are already here.
         for (Integer adj : aGraph.getAdjList(current)) {
@@ -61,6 +63,48 @@ public class Searches {
                 // we don't have this in the answer array list, do dfs from the next item.
                 answers = dfsOfGraph(adj, aGraph, answers);
             }
+        }
+
+        return answers;
+    }
+
+    public static ArrayList<Integer> bfsOfGraph(MapGraph<Integer> aGraph) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        Set<Integer> nodes = aGraph.getNodes();
+
+        for (Integer node : nodes) {
+            bfsOfGraph(node, aGraph, list);
+        }
+
+        return list;
+    }
+
+    public static ArrayList<Integer> bfsOfGraph(Integer current, MapGraph<Integer> aGraph, ArrayList<Integer> answers) {
+
+        //bfs is "exhaust adjacents, then dig", queue them basically
+        if (!answers.contains(current)) {
+            answers.add(current);
+        }
+
+        Queue<Integer> nodeQueue = new LinkedList<Integer>();
+
+        for (Integer adj : aGraph.getAdjList(current)) {
+            if (answers.contains(adj)) {
+                continue;
+            }
+
+            answers.add(adj);
+            nodeQueue.add(adj);
+        }
+
+        //then iterate over queue and remove until empty.
+        while(!nodeQueue.isEmpty()) {
+            Integer node = nodeQueue.remove();
+
+            if (node != null)
+            bfsOfGraph(node, aGraph, answers);
         }
 
         return answers;

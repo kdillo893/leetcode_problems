@@ -59,7 +59,13 @@ public class DSTest {
     }
 
     System.out.println(mapGraph);
-    System.out.println(Searches.dfsOfGraph(mapGraph));
+    List<Integer> dfsRes = Searches.dfsOfGraph(mapGraph);
+    System.out.format("dfslen = %d\n", dfsRes.size());
+    System.out.println(dfsRes);
+    
+    List<Integer> bfsRes = Searches.bfsOfGraph(mapGraph);
+    System.out.format("bfslen = %d\n", bfsRes.size());
+    System.out.println(bfsRes);
   }
 
   /**
