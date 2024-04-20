@@ -3,6 +3,7 @@ package data;
 import java.util.*;
 import data.MyGraph;
 import data.GraphNode;
+import data.MapGraph;
 
 public class Searches {
     // Function to return a list containing the DFS traversal of the graph.
@@ -29,6 +30,36 @@ public class Searches {
 
                 // we don't have this in the answer array list, do dfs from the next item.
                 answers = dfsOfGraph(vertexes, adj, aGraph, answers);
+            }
+        }
+
+        return answers;
+    }
+
+    public static ArrayList<Integer> dfsOfGraph(MapGraph<Integer> aGraph) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        Set<Integer> nodes = aGraph.getNodes();
+
+        // dfs is recursion, start with "0 node" and scale through the first instance.
+        for (Integer node : nodes) {
+            dfsOfGraph(node, aGraph, list);
+        }
+
+        return list;
+    }
+ 
+    public static ArrayList<Integer> dfsOfGraph(Integer current, MapGraph<Integer> aGraph, ArrayList<Integer> answers) {
+
+        // we have the existing answers, we're looking for "current" in "adj"
+        answers.add(current);
+
+        // loop over the current's adjacency list, skip over ones that are already here.
+        for (Integer adj : aGraph.getAdjList(current)) {
+            if (!answers.contains(adj)) {
+
+                // we don't have this in the answer array list, do dfs from the next item.
+                answers = dfsOfGraph(adj, aGraph, answers);
             }
         }
 
