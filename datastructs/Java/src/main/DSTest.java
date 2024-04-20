@@ -41,15 +41,20 @@ public class DSTest {
     ArrayList<GraphNode> dfsOfGraph = Searches.dfsOfGraph(aGraph);
     System.out.println(dfsOfGraph);
 
-
-    //map graph dfs. this should be the one I like better.
+    // map graph dfs. this should be the one I like better.
     MapGraph<Integer> mapGraph = new MapGraph<Integer>();
-    //make a set of random integers.
-    
+    // make a set of random integers.
+
     List<Integer> ints = randomIntGen();
-    //randomly link things to other ints when adding graph? how do I do that.
-    
-    int maxLinks = args.length >= 1 ? Integer.valueOf(args[0]) : 3;
+    // randomly link things to other ints when adding graph? how do I do that.
+
+    int maxLinks = 3;
+    try {
+      if (args.length > 0)
+        maxLinks = Integer.parseInt(args[0]);
+    } catch (NumberFormatException ex) {
+      // unhandle
+    }
 
     for (Integer thing : ints) {
       Random r = new Random();
@@ -57,8 +62,9 @@ public class DSTest {
 
         Integer randomInList = ints.get(r.nextInt(ints.size()));
 
-        //don't link to yourself.
-        if (randomInList == thing) continue;
+        // don't link to yourself.
+        if (randomInList == thing)
+          continue;
 
         mapGraph.addEdge(thing, randomInList, true);
       }
@@ -68,17 +74,17 @@ public class DSTest {
     List<Integer> dfsRes = Searches.dfsOfGraph(mapGraph);
     System.out.format("dfslen = %d\n", dfsRes.size());
     System.out.println(dfsRes);
-    
+
     List<Integer> bfsRes = Searches.bfsOfGraph(mapGraph);
     System.out.format("bfslen = %d\n", bfsRes.size());
     System.out.println(bfsRes);
 
-    //if only the first element searched from, want to see how far it scales.
+    // if only the first element searched from, want to see how far it scales.
     List<Integer> dfsOnlyFirst = Searches.dfsOfGraphOnlyFirst(mapGraph);
     System.out.format("dfsoflen = %d\n", dfsOnlyFirst.size());
     System.out.println(dfsOnlyFirst);
 
-    //if only the first element searched from, want to see how far it scales.
+    // if only the first element searched from, want to see how far it scales.
     List<Integer> bfsOnlyFirst = Searches.bfsOfGraphOnlyFirst(mapGraph);
     System.out.format("bfsoflen = %d\n", bfsOnlyFirst.size());
     System.out.println(bfsOnlyFirst);
@@ -93,7 +99,7 @@ public class DSTest {
 
     List<Integer> ints = new ArrayList<>();
 
-    for (int i = 0; i < RAND_INT_SIZE; ) {
+    for (int i = 0; i < RAND_INT_SIZE;) {
       Integer next = rand.nextInt(1000);
 
       if (!ints.contains(next)) {
@@ -104,6 +110,5 @@ public class DSTest {
 
     return ints;
   }
-
 
 }
