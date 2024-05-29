@@ -16,3 +16,13 @@ VALUES (generate_series((select max(memid) from ts.members)::int+1, (select max(
             'Oscar', 'Jackson', 'Buttz', 'O''Leary', 'Steven', 'Theodore', 'Ulrich',
             'Victor', 'Wendel', 'Xavier', 'Yanis', 'Zachary'])[floor(random()*26)+1],
         'randomplace', 12345, '+1(234)567-8901', null, now());
+
+
+INSERT INTO ts.facilities
+    (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
+VALUES (generate_series((select coalesce(max(facid), 0) from ts.facilities)::int+1, (select coalesce(max(facid), 0) from ts.facilities)::int+50),
+        (ARRAY['Tennis Court', 'Swimming Pool', 'Bowling Alley',
+                'Basketball Court', 'Golf Course', 'Disc Golf Course',
+                'Weight Training Gym', 'Running Track'])[floor(random()*8)+1] || ' ' ||
+        (ARRAY[1,2,3,4,5,6,7,8,9,10])[floor(random()*10)+1],
+        random() * 1000, random() * 1000, random() * 1000, random() * 10000);
