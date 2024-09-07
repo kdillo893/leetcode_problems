@@ -44,7 +44,7 @@ VALUES (generate_series((select coalesce(max(facid), 0) from ts.facilities)::int
 -- very icky and slow method, do order by random limit 1 multiple times..
 INSERT INTO ts.bookings
     (facid, memid, starttime, slots)
-select (select facid from ts.facilities where gen=gen offset floor(random()*(select count(facid) from ts.facilities)::int) limit 1),
-        (select memid from ts.members where gen=gen offset floor(random()*(select count(memid) from ts.members)::int) limit 1),
+select (select facid from ts.facilities where gen=gen offset floor(random()*((select count(facid) from ts.facilities)::int -1)) limit 1),
+        (select memid from ts.members where gen=gen offset floor(random()*((select count(memid) from ts.members)::int -1)) limit 1),
         (date_add(now(), (((random()*2) - 1) * 1000 * '1 day'::INTERVAL))), (floor(random() * 10))
 from generate_series(1,200) gen;
