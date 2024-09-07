@@ -4,7 +4,7 @@
 --placing this in a db entity separate from other stuff
 
 --drop database if exists testdb;
-CREATE DATABASE testdb IF NOT EXISTS;
+-- CREATE DATABASE testdb IF NOT EXISTS;
 
 --DROP SCHEMA IF EXISTS ts;
 
