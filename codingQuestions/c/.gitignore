@@ -1,5 +1,5 @@
 # object files
-objs/*.o
+src/objs/*.o
 
 # the executable
 leetcode
