@@ -1,8 +1,5 @@
 #include<stdlib.h>
 
-/** define ds structs.
-*/
-
 /** Arraylist would need "what is this an arraylist of" and "length of list", then the contents.
   "how do I specify type on retrieve?" -> maybe just a void pointer and casting from caller.
 */
@@ -15,6 +12,17 @@ typedef struct ArrayList {
   //(array of void pointers).
   void ** data;
 } arraylist_t;
+
+/**
+ * ArrayListInt, just an arraylist of int sized items.
+*/
+typedef struct ArrayListInt {
+  int length; // what data is actually here and how much? (capacity =/= length)
+  int elementCapacity; // how many elements can I hold?
+
+  //data will be "some allocation of intsize x length", the length can be changed.
+  int * data;
+} arraylistint_t;
 
 /** Node containing a simple int value and the next node
 */
