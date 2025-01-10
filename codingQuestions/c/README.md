@@ -1,8 +1,5 @@
 # C coding things
 
-TODO, don't worry
-
-
 ## Building
 If you want to avoid my bad autotools usage, just do this:
 
@@ -17,4 +14,10 @@ Just do the following
 
 ```
 ./leetcode
+```
+
+## Cleanup
+
+```
+make clean
 ```

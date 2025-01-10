@@ -29,11 +29,12 @@ public class MyHttpServer {
 
       // above try pre-req did the "create, bind, listen" steps...
 
+      // listening loop
       while (true) {
 
         Socket clientSock = myServer.accept();
 
-        System.out.println("Client connected");
+        System.out.println("Client connected: ", clientSock.toString());
 
         // parse the request from the client socket...
         // have a READER from the input stream of the socket...
@@ -48,7 +49,7 @@ public class MyHttpServer {
         do {
           inputLine = buffReader.readLine();
           // troubleshoot print
-          System.out.println(inputLine);
+          // System.out.println(inputLine);
           headerLines.add(inputLine);
         } while (inputLine.length() > 0);
 
@@ -74,18 +75,18 @@ public class MyHttpServer {
 
           inputLine = buffReader.readLine();
           // troubleshoot print
-          System.out.println(inputLine);
+          // System.out.println(inputLine);
           requestBody.append(inputLine);
         }
 
         System.out.println(requestBody.toString());
 
-        // now output something to the client...
+        // now send something to the client...
         OutputStream outputStream = clientSock.getOutputStream();
         PrintWriter writer = new PrintWriter(outputStream, true);
 
         writer.println("This is coming from the server!");
-        // I need to write a proper response with headers and such from here...
+        // TODO: I need to write a proper response with headers and such from here...
 
         buffReader.close();
         // close the connection when im done writing.

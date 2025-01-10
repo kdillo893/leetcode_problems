@@ -4,6 +4,7 @@
 
 // library for large numbers
 #include <gmp.h>
+#include <string.h>
 
 /**
  * 1 if is prime, 0 if not
@@ -35,7 +36,7 @@ void largePrime(mpz_t *prime, gmp_randstate_t *seed) {
   // Assuming seed is provided for now...
   mpz_urandomb(*prime, *seed, 4096);
   mpz_nextprime(*prime, *prime);
-  
+
   return;
 }
 
@@ -68,21 +69,22 @@ unsigned long long int generatePrimitiveRoot(unsigned long long int p) {
 
 int main(int argc, char *argv[]) {
 
-  //this is an array declaration 
+  // this is an array declaration
   gmp_randstate_t bigSeed;
-  gmp_randinit_default(bigSeed);
-  
-  long seed = 0;
-  if (argc == 2) {
-    seed = atoi(argv[1]);
+
+  char *seed = NULL;
+  if (argc >= 2) {
+    strcpy(seed, argv[1]);
   }
+
+  //if the seed is there as parameter, parse the characters into gmp number.
+  gmp_randinit_default(bigSeed);
 
   mpz_t p;
   mpz_init(p);
   mpz_set_ui(p, 0);
 
   largePrime(&p, &bigSeed);
-
 
   mpz_out_str(stdout, 16, p);
   assert(isPrime(&p));
